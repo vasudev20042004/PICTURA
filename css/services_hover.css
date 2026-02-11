@@ -1,0 +1,189 @@
+/* Services Horizontal Accordion */
+.services-section {
+    padding: 6rem 0;
+    position: relative;
+    /* overflow: hidden; -- Removed to let shadows show */
+}
+
+.container-fluid {
+    width: 95%;
+    /* Wider for drama */
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.accordion-wrapper {
+    display: flex;
+    width: 100%;
+    height: 700px;
+    /* Taller */
+    gap: 1.5rem;
+}
+
+.accordion-item {
+    position: relative;
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    /* More rounded */
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    filter: brightness(0.8) grayscale(0.6);
+    /* Cinematic tint */
+}
+
+.accordion-item:hover,
+.accordion-item.active {
+    flex: 3.5;
+    filter: brightness(1) grayscale(0);
+    /* This creates the expansion effect */
+}
+
+.accordion-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.2) 100%);
+    transition: opacity 0.5s;
+}
+
+.accordion-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem;
+    z-index: 2;
+    white-space: nowrap;
+    /* Prevent wrapping during transition */
+}
+
+.service-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: all 0.5s;
+}
+
+.accordion-item:hover .service-num {
+    color: var(--primary-color);
+    -webkit-text-stroke: 0;
+}
+
+.accordion-content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: white;
+    transform-origin: left bottom;
+    transform: rotate(-90deg) translate(0, -30px);
+    /* The rotation places the text vertically when collapsed */
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+}
+
+/* On hover (Expand) State styles */
+.accordion-item:hover .accordion-content h3,
+.accordion-item.active .accordion-content h3 {
+    position: relative;
+    transform: rotate(0) translate(0, 0);
+    bottom: auto;
+    left: auto;
+    font-size: 2.5rem;
+}
+
+.accordion-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.1s;
+    max-width: 80%;
+    white-space: normal;
+}
+
+.accordion-item:hover .accordion-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    margin-top: 1.5rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+}
+
+.accordion-item:hover .explore-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.explore-btn:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .accordion-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .accordion-item {
+        height: 300px;
+        /* Fixed height for stacked items */
+        width: 100%;
+        margin-bottom: 1rem;
+        flex: none;
+        /* Disable flex scaling on mobile */
+    }
+
+    .accordion-item:hover {
+        flex: none;
+        /* Disable flex scaling */
+    }
+
+    .accordion-content h3 {
+        transform: rotate(0);
+        position: relative;
+        bottom: auto;
+        left: auto;
+        font-size: 1.8rem;
+    }
+
+    .accordion-content p {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .service-num {
+        font-size: 2rem;
+    }
+
+    .explore-btn {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

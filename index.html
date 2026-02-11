@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pictura Creations Ltd. - A premium creative media company specializing in fast turnarounds for photography, videography, and cinematics.">
+    <title>Pictura Creations Ltd. | Cinematic Media Studio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" href="assets/logo.svg">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/services_hover.css">
+</head>
+
+<body>
+
+    <!-- Topographical Background Overlay -->
+    <div class="topo-bg"></div>
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/pictura.png" alt="Pictura Creations" style="height: 130px; object-fit: contain;">
+                </a>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+            <!-- Ideally a cinematic b-roll video here. Placeholder for now. -->
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-32752-large.mp4"
+                type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1>Capture The Extraordinary</h1>
+            <p>Premium creative media solutions. From cinematic films to brand storytelling.</p>
+            <div class="hero-cta">
+                <a href="gallery.html" class="btn btn-primary">View Our Work</a>
+                <a href="contact.html" class="btn btn-outline">Book a Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <!-- Services Preview (Horizontal Accordion) -->
+    <section id="services-preview" class="services-section">
+        <div class="container-fluid">
+            <div class="section-title" style="margin-bottom: 2rem;">
+                <h2>Our Expertise</h2>
+                <span></span>
+            </div>
+
+            <div class="accordion-wrapper">
+                <!-- Item 1 -->
+                <div class="accordion-item active"
+                    style="background-image: url('https://images.unsplash.com/photo-1554080353-a576cf803bda?auto=format&fit=crop&w=800&q=80');">
+                    <div class="accordion-overlay"></div>
+                    <div class="accordion-content">
+                        <span class="service-num">01</span>
+                        <h3>Photography</h3>
+                        <p>Capturing moments with precision and artistry.</p>
+                        <a href="services.html" class="explore-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="accordion-item"
+                    style="background-image: url('https://images.unsplash.com/photo-1579126038374-6064e9370f0f?auto=format&fit=crop&w=800&q=80');">
+                    <div class="accordion-overlay"></div>
+                    <div class="accordion-content">
+                        <span class="service-num">02</span>
+                        <h3>Videography</h3>
+                        <p>Cinematic storytelling in motion.</p>
+                        <a href="services.html" class="explore-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="accordion-item"
+                    style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80');">
+                    <div class="accordion-overlay"></div>
+                    <div class="accordion-content">
+                        <span class="service-num">03</span>
+                        <h3>Brand Identity</h3>
+                        <p>Defining your visual legacy.</p>
+                        <a href="services.html" class="explore-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="accordion-item"
+                    style="background-image: url('https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=800&q=80');">
+                    <div class="accordion-overlay"></div>
+                    <div class="accordion-content">
+                        <span class="service-num">04</span>
+                        <h3>Aerial Cinema</h3>
+                        <p>Perspectives from above.</p>
+                        <a href="services.html" class="explore-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section id="featured-work" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Work</h2>
+                <span></span>
+            </div>
+
+            <div class="work-grid">
+                <div class="work-item">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80"
+                        alt="Cinematic Landscape">
+                    <div class="work-overlay">
+                        <h3>Nature Documentary</h3>
+                        <p>Film Production</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="https://images.unsplash.com/photo-1605218427306-0343d6114e44?auto=format&fit=crop&w=800&q=80"
+                        alt="Brand Shoot">
+                    <div class="work-overlay">
+                        <h3>Urban Fashion</h3>
+                        <p>Brand Campaign</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=800&q=80"
+                        alt="Portrait">
+                    <div class="work-overlay">
+                        <h3>Editorial Portraits</h3>
+                        <p>Photography</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:3rem;">
+                <a href="gallery.html" class="btn btn-primary">See Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials or Quote -->
+    <section id="quote"
+        style="background: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80') center/cover fixed; position: relative;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8);"></div>
+        <div class="container"
+            style="position: relative; z-index: 1; text-align: center; color: white; padding: 6rem 0;">
+            <i class="fas fa-quote-left" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 2rem;"></i>
+            <h3 style="font-size: 2rem; font-weight: 300; margin-bottom: 2rem;">"Visual storytelling is not just about
+                what you see, but what you feel. Let us frame your vision."</h3>
+            <h4>- The Pictura Team</h4>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Pictura Creations</h3>
+                    <p style="color: grey;">Premium cinematic media production for brands and individuals. Capturing
+                        moments with precision and creativity.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> hello@picturacreations.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Creative Studio, Media City</li>
+                    </ul>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pictura Creations Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

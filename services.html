@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Pictura Creations Ltd.</title>
+    <link rel="icon" href="assets/logo.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .services-header {
+            background: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .services-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .services-header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 3.5rem;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .service-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .service-card-detail {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .service-card-detail:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .service-card-detail h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card-detail p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card-detail .icon-large {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topo-bg"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo"><img src="assets/pictura.png" alt="Pictura Creations"
+                        style="height: 130px; object-fit: contain;"></a>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="services-header">
+        <h1>Our Expertise</h1>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Tailored For Creators</h2>
+                <span></span>
+                <p
+                    style="margin-top:1rem; max-width:600px; margin-left:auto; margin-right:auto; color:var(--text-muted);">
+                    From personal milestones to corporate branding, we provide a full spectrum of creative services.
+                </p>
+            </div>
+
+            <div class="service-list-grid">
+                <!-- Photography -->
+                <div class="service-card-detail">
+                    <i class="fas fa-camera icon-large"></i>
+                    <h3>Photography</h3>
+                    <p>High-end photography for events, portraits, fashion, and product showcases. We capture the
+                        perfect moment.</p>
+                </div>
+                <!-- Videography -->
+                <div class="service-card-detail">
+                    <i class="fas fa-video icon-large"></i>
+                    <h3>Videography</h3>
+                    <p>Cinematic storytelling through video. perfect for music videos, documentaries, and event
+                        highlights.</p>
+                </div>
+                <!-- Functions Coverage -->
+                <div class="service-card-detail">
+                    <i class="fas fa-glass-cheers icon-large"></i>
+                    <h3>Functions Coverage</h3>
+                    <p>Comprehensive coverage for weddings, corporate galas, and private parties. Relive the
+                        celebration.</p>
+                </div>
+                <!-- Photo Booth -->
+                <div class="service-card-detail">
+                    <i class="fas fa-images icon-large"></i>
+                    <h3>Photo Booth</h3>
+                    <p>Enhance your event with our interactive photo booth setups, complete with props and instant
+                        prints.</p>
+                </div>
+                <!-- Commercial Projects -->
+                <div class="service-card-detail">
+                    <i class="fas fa-briefcase icon-large"></i>
+                    <h3>Commercial Projects</h3>
+                    <p>End-to-end production for TV commercials and online ad campaigns that drive engagement.</p>
+                </div>
+                <!-- Live Broadcast -->
+                <div class="service-card-detail">
+                    <i class="fas fa-broadcast-tower icon-large"></i>
+                    <h3>Live Broadcast</h3>
+                    <p>Seamless multi-camera live streaming for concerts, seminars, and hybrid events.</p>
+                </div>
+                <!-- Brand Design -->
+                <div class="service-card-detail">
+                    <i class="fas fa-pen-nib icon-large"></i>
+                    <h3>Brand Design</h3>
+                    <p>Visual identity creation including logos, style guides, and digital assets to define your brand.
+                    </p>
+                </div>
+                <!-- Real Estate Media -->
+                <div class="service-card-detail">
+                    <i class="fas fa-home icon-large"></i>
+                    <h3>Real Estate Media</h3>
+                    <p>Stunning interior photography and walkthrough videos to showcase properties at their best.</p>
+                </div>
+                <!-- Short Films -->
+                <div class="service-card-detail">
+                    <i class="fas fa-film icon-large"></i>
+                    <h3>Short Films</h3>
+                    <p>Production support for narrative short films, from script to screen.</p>
+                </div>
+                <!-- Portfolio Shoots -->
+                <div class="service-card-detail">
+                    <i class="fas fa-user-tie icon-large"></i>
+                    <h3>Portfolio Shoots</h3>
+                    <p>Professional headshots and modeling portfolios designed to launch careers.</p>
+                </div>
+                <!-- Advertisement Production -->
+                <div class="service-card-detail">
+                    <i class="fas fa-ad icon-large"></i>
+                    <h3>Advertisement Production</h3>
+                    <p>Creative concepts turned into compelling video ads for social media and television.</p>
+                </div>
+                <!-- Content Creation -->
+                <div class="service-card-detail">
+                    <i class="fas fa-share-alt icon-large"></i>
+                    <h3>Content Creation</h3>
+                    <p>Regular social media content packages including reels, posts, and stories to keep your audience
+                        engaged.</p>
+                </div>
+            </div>
+
+            <div style="text-align:center; padding: 2rem 0;">
+                <h3>Ready to start a project?</h3>
+                <br>
+                <a href="contact.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pictura Creations Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
