@@ -1,189 +1,177 @@
-/* Services Horizontal Accordion */
+/* Services Tilted Card Effect */
 .services-section {
     padding: 6rem 0;
     position: relative;
-    /* overflow: hidden; -- Removed to let shadows show */
+    /* overflow: hidden; - Removed to handle shadows */
 }
 
 .container-fluid {
-    width: 95%;
-    /* Wider for drama */
+    width: 90%;
     max-width: 1600px;
     margin: 0 auto;
 }
 
-.accordion-wrapper {
+.tilted-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 700px;
-    /* Taller */
+    height: 600px;
     gap: 1.5rem;
+    /* Gap between cards */
+    perspective: 1200px;
+    /* IMPORTANT for 3D effect */
 }
 
-.accordion-item {
+/* The Tilted Item Container */
+.tilted-item {
     position: relative;
     flex: 1;
+    /* Default flex value */
+    margin: 0 5px;
+    /* Slight gap */
+    height: 100%;
     background-size: cover;
     background-position: center;
-    border-radius: 40px;
-    /* More rounded */
+    border-radius: 8px;
+    /* Slightly less rounded */
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    filter: brightness(0.8) grayscale(0.6);
-    /* Cinematic tint */
+
+    /* Initial Skew State */
+    transform: skewX(-10deg);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    /* Shadow follows skew */
+    filter: brightness(0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.accordion-item:hover,
-.accordion-item.active {
-    flex: 3.5;
-    filter: brightness(1) grayscale(0);
-    /* This creates the expansion effect */
+/* Hover State - Expand and Straighten */
+.tilted-item:hover,
+.tilted-item.active {
+    flex: 3;
+    /* Expand width significantly */
+    transform: skewX(0);
+    /* Straighten up completely */
+    filter: brightness(1);
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    border-color: var(--primary-color);
+    margin: 0 15px;
+    /* Add space around active item */
 }
 
-.accordion-overlay {
+.tilted-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.2) 100%);
-    transition: opacity 0.5s;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.9) 100%);
+    transform: skewX(6deg);
+    /* Counter skew background?? No, skew wrapper handles it. */
+    /* Actually background-image is on wrapper, so overlay just fills it */
 }
 
-.accordion-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 3rem;
-    z-index: 2;
-    white-space: nowrap;
-    /* Prevent wrapping during transition */
-}
-
-.service-num {
-    font-size: 3rem;
-    font-weight: 800;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
-    display: block;
-    margin-bottom: 0.5rem;
-    transition: all 0.5s;
-}
-
-.accordion-item:hover .service-num {
-    color: var(--primary-color);
-    -webkit-text-stroke: 0;
-}
-
-.accordion-content h3 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    color: white;
-    transform-origin: left bottom;
-    transform: rotate(-90deg) translate(0, -30px);
-    /* The rotation places the text vertically when collapsed */
-    position: absolute;
-    bottom: 60px;
-    left: 10px;
-    transition: all 0.5s ease;
-    white-space: nowrap;
-}
-
-/* On hover (Expand) State styles */
-.accordion-item:hover .accordion-content h3,
-.accordion-item.active .accordion-content h3 {
+/* Content Container inside the item */
+.tilted-content {
     position: relative;
-    transform: rotate(0) translate(0, 0);
-    bottom: auto;
-    left: auto;
-    font-size: 2.5rem;
+    z-index: 2;
+    padding: 2rem;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+
+    /* Counter-Skew: Must act opposite to parent's initial skew */
+    transform: skewX(10deg);
+    transition: transform 0.5s ease;
 }
 
-.accordion-content p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease 0.1s;
-    max-width: 80%;
-    white-space: normal;
+/* When parent straightens (skewX 0), content must also straighten (skewX 0) */
+.tilted-item:hover .tilted-content {
+    transform: skewX(0);
 }
 
-.accordion-item:hover .accordion-content p {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.explore-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--primary-color);
+/* Tag style matching image */
+.tilted-tag {
+    display: inline-block;
+    background-color: var(--primary-color);
+    /* Neon Green in ref, Orange here */
     color: white;
-    margin-top: 1.5rem;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+    /* Black text usually looks better on neon, white on orange */
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 }
 
-.accordion-item:hover .explore-btn {
-    opacity: 1;
-    transform: scale(1);
+.tilted-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.explore-btn:hover {
-    background: white;
-    color: var(--primary-color);
+/* Ghost Number */
+.tilted-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    transform: skewX(10deg);
+    /* Counter skew */
+    transition: all 0.5s ease;
+}
+
+.tilted-item:hover .tilted-num {
+    transform: skewX(0);
+    color: rgba(255, 255, 255, 0.15);
+    right: 30px;
 }
 
 
 /* Mobile Responsive */
 @media (max-width: 900px) {
-    .accordion-wrapper {
+    .tilted-wrapper {
         flex-direction: column;
         height: auto;
+        gap: 1rem;
     }
 
-    .accordion-item {
-        height: 300px;
-        /* Fixed height for stacked items */
+    .tilted-item {
         width: 100%;
-        margin-bottom: 1rem;
+        height: 350px;
+        transform: none;
+        /* No skew on mobile */
+        filter: brightness(0.8);
         flex: none;
-        /* Disable flex scaling on mobile */
     }
 
-    .accordion-item:hover {
+    .tilted-content,
+    .tilted-num {
+        transform: none;
+        /* No counter-skew */
+    }
+
+    .tilted-item:hover {
+        transform: none;
         flex: none;
-        /* Disable flex scaling */
+        /* No expansion on mobile */
     }
 
-    .accordion-content h3 {
-        transform: rotate(0);
-        position: relative;
-        bottom: auto;
-        left: auto;
-        font-size: 1.8rem;
-    }
-
-    .accordion-content p {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .service-num {
-        font-size: 2rem;
-    }
-
-    .explore-btn {
-        opacity: 1;
-        transform: scale(1);
+    .tilted-item:hover .tilted-content,
+    .tilted-item:hover .tilted-num {
+        transform: none;
     }
 }

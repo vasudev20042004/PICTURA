@@ -14,7 +14,7 @@
     --border-radius: 16px;
     --font-main: 'Outfit', sans-serif;
     --container-padding: 2rem;
-    --header-height: 150px;
+    --header-height: 100px;
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
     --shadow-glow: 0 0 20px rgba(239, 128, 0, 0.3);
@@ -186,6 +186,8 @@ nav {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--secondary-color);
+    margin-left: -1.5rem;
+    /* Move slightly left */
 }
 
 .logo span {
@@ -574,6 +576,23 @@ footer {
 
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Disable sticky header on mobile to stop popping */
+    header {
+        position: absolute;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        border-bottom: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    header.scrolled {
+        background: transparent !important;
+        padding: 0.8rem 0 !important;
+        backdrop-filter: none !important;
+        border-bottom: none !important;
     }
 
     .nav-links {
