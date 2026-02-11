@@ -164,14 +164,23 @@
         /* No counter-skew */
     }
 
-    .tilted-item:hover {
+    .tilted-item:hover,
+    .tilted-item.active {
         transform: none;
         flex: none;
         /* No expansion on mobile */
+        margin: 0;
+        /* Reset margins */
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        /* Reset shadow */
+        border-color: rgba(255, 255, 255, 0.1);
+        /* Reset border */
     }
 
     .tilted-item:hover .tilted-content,
-    .tilted-item:hover .tilted-num {
+    .tilted-item:hover .tilted-num,
+    .tilted-item.active .tilted-content,
+    .tilted-item.active .tilted-num {
         transform: none;
     }
 }

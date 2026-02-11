@@ -1,0 +1,88 @@
+/* Film Roll Separator */
+.film-roll-container {
+    width: 100%;
+    height: 120px;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    margin: 2rem 0;
+}
+
+.film-roll-track {
+    display: flex;
+    width: 200%;
+    /* Important for infinite loop */
+    animation: scrollFilm 20s linear infinite;
+}
+
+.film-roll-content {
+    flex: 0 0 100%;
+    height: 80px;
+    background-color: #050505;
+
+    /* Using multiple gradients to draw the film strip */
+    background-image:
+        /* Top Sprocket Holes */
+        linear-gradient(90deg, #333 30%, transparent 30%),
+        /* Bottom Sprocket Holes */
+        linear-gradient(90deg, #333 30%, transparent 30%),
+        /* Frame Dividers */
+        linear-gradient(90deg, #222 2px, transparent 2px);
+
+    background-size:
+        20px 12px,
+        /* Hole Size */
+        20px 12px,
+        /* Hole Size */
+        120px 100%;
+    /* Frame Width */
+
+    background-position:
+        0 5px,
+        /* Top */
+        0 63px,
+        /* Bottom (80 - 12 - 5) */
+        0 0;
+
+    background-repeat: repeat-x;
+    position: relative;
+}
+
+/* Adding a shine/glass effect */
+.film-roll-content::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    pointer-events: none;
+}
+
+@keyframes scrollFilm {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .film-roll-container {
+        height: 80px;
+        margin: 1rem 0;
+    }
+
+    .film-roll-content {
+        height: 50px;
+        background-size: 14px 8px, 14px 8px, 80px 100%;
+        background-position: 0 4px, 0 38px, 0 0;
+    }
+}
