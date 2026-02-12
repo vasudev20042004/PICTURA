@@ -222,17 +222,17 @@
                         <h2>Send Message</h2>
                         <span style="margin:0;"></span>
                     </div>
-                    <form action="#" method="POST">
+                    <form id="contactForm" action="#" method="POST">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <input type="tel" name="phone" placeholder="Your Phone">
 
                         <select name="service">
                             <option value="" disabled selected>Select Service Interest</option>
-                            <option value="photography">Photography</option>
-                            <option value="videography">Videography</option>
-                            <option value="commercial">Commercial Production</option>
-                            <option value="other">Other</option>
+                            <option value="event">Event</option>
+                            <option value="function">Function</option>
+                            <option value="live_broadcast">Live Broadcast</option>
+                            <option value="corporate">Corporate</option>
                         </select>
 
                         <textarea name="message" rows="5" placeholder="Tell us about your project..."
@@ -261,6 +261,28 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = this.querySelector('input[name="name"]').value;
+            const email = this.querySelector('input[name="email"]').value;
+            const phone = this.querySelector('input[name="phone"]').value;
+            const service = this.querySelector('select[name="service"]').value;
+            const message = this.querySelector('textarea[name="message"]').value;
+
+            const formattedMessage = `*New Inquiry via Website*\n\n` +
+                `*Name:* ${name}\n` +
+                `*Email:* ${email}\n` +
+                `*Phone:* ${phone}\n` +
+                `*Service Interest:* ${service}\n` +
+                `*Message:* ${message}`;
+
+            const whatsappUrl = `https://wa.me/917034810509?text=${encodeURIComponent(formattedMessage)}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
 </body>
 
 </html>
