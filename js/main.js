@@ -62,3 +62,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Preloader Animation Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const introOverlay = document.getElementById('intro-overlay');
+    const introLogoContainer = document.querySelector('.intro-logo-container');
+    const introLogo = document.getElementById('intro-logo');
+    const headerLogo = document.querySelector('.logo img');
+
+    if (introOverlay && introLogo && headerLogo) {
+        // Ensure header logo is hidden initially (already set in HTML but double check/clean)
+        headerLogo.style.opacity = '0';
+
+        // 1. Reveal Logo (Part by Part via CSS Clip-Path)
+        // Delay slightly to ensure render
+        setTimeout(() => {
+            introLogoContainer.classList.add('reveal');
+        }, 50);
+
+        // 2. Move Logo to Header Position
+        // Wait for reveal animation (1.5s) to mostly finish or finish
+        setTimeout(() => {
+            // Get viewport-relative positions
+            const startRect = introLogo.getBoundingClientRect();
+            const endRect = headerLogo.getBoundingClientRect();
+
+            // Calculate translation needed
+            const x = endRect.left - startRect.left;
+            const y = endRect.top - startRect.top;
+
+            // Calculate scale needed (based on height to preserve aspect ratio)
+            const scale = endRect.height / startRect.height;
+
+            // Apply styles for animation
+            introLogo.style.transformOrigin = 'top left';
+            introLogo.style.transition = 'transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease';
+            introLogo.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+
+            // Concurrently fade out the overlay background
+            introOverlay.classList.add('fade-out'); // handles bg transparency
+
+        }, 1800); // reduced overall time slightly as well
+
+        // 3. Finalize and Swap
+        setTimeout(() => {
+            // Show real header logo
+            headerLogo.style.opacity = '1';
+
+            // Hide intro logo to prevent double visual if alignment isn't pixel perfect
+            introLogo.style.opacity = '0';
+
+            // Allow cleanup
+            setTimeout(() => {
+                introOverlay.style.display = 'none';
+            }, 500);
+        }, 2900);
+    }
+});

@@ -672,3 +672,45 @@ footer {
         margin-left: -5px;
     }
 }
+
+/* Preloader Animation */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.8s ease-in-out;
+}
+
+.intro-logo-container {
+    position: relative;
+    /* overflow property removed to prevent clipping during move */
+}
+
+
+#intro-logo {
+    height: 150px;
+    /* Larger start size */
+    width: auto;
+    object-fit: contain;
+    /* We use clip-path to reveal 'part by part' (left to right) */
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Class to trigger the reveal */
+.intro-logo-container.reveal #intro-logo {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Class to hide the overlay background */
+#intro-overlay.fade-out {
+    background-color: transparent;
+    pointer-events: none;
+}
