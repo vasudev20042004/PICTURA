@@ -49,7 +49,7 @@
 
         /* Masonry Layout */
         .gallery-grid {
-            column-count: 3;
+            column-count: 2;
             column-gap: 1.5rem;
         }
 
@@ -157,17 +157,29 @@
 
 
 
-        <!-- Featured Video Section -->
-        <div id="featured-video-container" style="margin-bottom: 4rem;">
-            <!-- JS will inject the latest video as featured here -->
-        </div>
-        <div id="youtube-section-gallery" class="youtube-section" style="display: none;">
-            <div class="youtube-header">
-                <h3>Latest Uploads</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem;">Fresh from our channel</p>
+
+        <div id="youtube-section-gallery" class="youtube-section">
+            <div id="dynamic-uploads-container" style="display: none;">
+                <div class="youtube-header">
+                    <h3>Latest Uploads</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Fresh from our channel</p>
+                </div>
+                <div id="youtube-gallery-grid" class="youtube-grid">
+                    <!-- JS will inject videos here -->
+                </div>
             </div>
-            <div id="youtube-gallery-grid" class="youtube-grid">
-                <!-- JS will inject videos here -->
+
+            <!-- YouTube Playlist Section -->
+            <div class="youtube-playlist-section">
+                <h2>More From Our YouTube Channel</h2>
+                <p>Watch all our recent creative highlights</p>
+                <div class="playlist-container">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLkapcJk6Xjolml-WEfdbadhraL8mn44Yl"
+                        title="YouTube playlist player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
 

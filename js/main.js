@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.service-card, .work-item, .section-title, .hero-content');
+    const animatedElements = document.querySelectorAll('.service-card, .work-item, .section-title, .hero-content, .youtube-playlist-section');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';

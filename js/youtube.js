@@ -74,7 +74,7 @@ window.loadVideo = function (element, videoId) {
 // Function to render Gallery Grid
 function renderGalleryVideos(videos) {
     const container = document.getElementById('youtube-gallery-grid');
-    const section = document.getElementById('youtube-section-gallery');
+    const section = document.getElementById('dynamic-uploads-container');
 
     if (!container || videos.length === 0) return;
 
