@@ -158,6 +158,43 @@
 
 
 
+
+        <!-- Static Gallery Grid (Stock Images) -->
+        <div class="gallery-grid" id="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
+                    alt="Cinematic Photography">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&w=800&q=80"
+                    alt="Filmmaking Setup">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?auto=format&fit=crop&w=800&q=80"
+                    alt="Creative Design">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=800&q=80"
+                    alt="Aerial Drone Shot">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80"
+                    alt="Nature Cinematic">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1478720568477-152d9b16751a?auto=format&fit=crop&w=800&q=80"
+                    alt="Film Production">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic Cinema">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80"
+                    alt="Movie Scene">
+            </div>
+        </div>
+
         <div id="youtube-section-gallery" class="youtube-section">
 
 
@@ -175,9 +212,7 @@
             </div>
         </div>
 
-        <div class="gallery-grid" id="gallery-grid">
-            <!-- Add new gallery items here later -->
-        </div>
+
     </div>
 
     <!-- Lightbox Modal -->
@@ -203,6 +238,7 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const closeBtn = document.querySelector('.lightbox-close');
+        const galleryItems = document.querySelectorAll('.gallery-item');
 
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
